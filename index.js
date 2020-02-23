@@ -69,7 +69,7 @@ bot.onText(/\/restart/,msg=>{
 bot.onText(/\/admin/,msg=>{
 
 	if(msg.chat.id === 561773833){
-		bot.sendMessage(msg.chat.id,"Привіт ,Діма");
+		bot.sendMessage(msg.chat.id,"Привіт ,розробник");
 
 	}else {
 		bot.sendMessage(msg.chat.id,"Ви не розробник");
