@@ -9,15 +9,18 @@ bot.onText(/\/developers/,msg => {
  	bot.sendMessage(msg.chat.id,text,{
  		parse_mode:'Markdown'
  	});
+
  });
 bot.onText(/\/name(.+)/,(msg,arr)=>{
 	name = arr[1];
 	bot.sendMessage(msg.chat.id,"Ваше і\'мя:"+name+" погнали!");
 	chn = 'Вибрано';
+
 });
 bot.onText(/\/activehistory/,msg => {
 	let text = 'На даний момент доступний сюжет за Сотника та Дворянина,в майбутньому будуть добавлені сюжетні лінії за Кріпака та Козака.';
 	bot.sendMessage(msg.chat.id,text);
+
 });
 bot.onText(/\/restart/,msg=>{
 	mainStart = false;
@@ -61,10 +64,23 @@ bot.onText(/\/restart/,msg=>{
 	});
 	choosename();
 
+
+});
+bot.onText(/\/admin/,msg=>{
+
+	if(msg.chat.id === 561773833){
+		bot.sendMessage(msg.chat.id,"Привіт ,Діма");
+
+	}else {
+		bot.sendMessage(msg.chat.id,"Ви не розробник");
+	}
+
+
 });
 // TEXT
 bot.on('message',msg =>{
 	chatId = msg.chat.id;
+
 	// save name
 	if(chn === true){
 		name = msg.text;
@@ -77,7 +93,7 @@ bot.on('message',msg =>{
 		}
 	}
 	//menu start
-   if(mainStart === false || msg.text === "/start"){
+   if(mainStart === false || msg.text === "/start" ){
    	mainStart = true;
    	 let text = 'Хай,мене звати Prototype2004,вибери одну із кнопок для продовження.Для перегляду пророблених історій відправ /activehistory.';
    	 bot.sendMessage(msg.chat.id,text,{
@@ -156,6 +172,7 @@ bot.on('callback_query',query =>{
 });
 // 4 - First Choose
 function start() {
+
    let text = 'На дворі 1648рік початок Національно-визвольної війни ,під приводом Богдана Хмельницького, ' +
 	   ' ти є ';
    bot.sendMessage(chatId,text,{
