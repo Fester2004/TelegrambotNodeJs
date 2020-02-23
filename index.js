@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = "886181790:AAGF-2IizyoabVLuAHCj4ySskv0K6Pl_BmM";
 const bot = new TelegramBot(token,{polling: true});
-/*const fs = require('fs');*/
+const fs = require('fs');
 let chatId = 0,name,mainStart = false,gameEnd = true,rid = 'null',chn = false,error = 0;
 //  COMMANDS
 bot.onText(/\/developers/,msg => {
